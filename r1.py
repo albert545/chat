@@ -10,7 +10,7 @@ def read_file(filename):
 #轉換格式
 def convert(lines):
 	new = []
-	person = None# 事先宣告 person的值為None
+	person = None # 事先宣告 person的值為None
 	for line in lines:
 		if line == 'Allen':
 			person = 'Allen'
@@ -20,7 +20,12 @@ def convert(lines):
 			continue
 		if person: #有值才執行 避免 person 當掉
 			new.append(person + ':' + line)
-	print(new)
+	return new
+#寫入檔案
+def write_file(filename,lines):
+	with open(filename, 'w') as f:
+		for line in lines:
+			f.write(line + '\n')
 
 
 
@@ -28,5 +33,6 @@ def main():
 	lines = read_file('input.txt')
 	#print(lines)
 	lines = convert(lines) #複寫回 lines清單
+	write_file('output.txt', lines)
 
 main()
