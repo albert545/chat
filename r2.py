@@ -9,20 +9,22 @@ def read_file(filename):
 
 #轉換格式
 def convert(lines):
-	new = []
 	person = None # 事先宣告 person的值為None
 	allen_word_count = 0
-	viki_word_xount = 0
+	viki_word_count = 0
 	for line in lines:
 		s = line.split(' ')  #分割清單
 		time = s[0]          #取出0 欄
 		name = s[1]
 		if name == 'Allen':
-			print(s[2:])
+			for m in s[2:]:
+				allen_word_count += len(m)
 		if name == 'Viki':
-			print(s[2:])
-		#print(line)
-	return new
+			for m in s[2:]:
+				viki_word_count += len(m)
+	print('allen say:' , allen_word_count)	
+	print('viki say:' , viki_word_count)
+
 #寫入檔案
 def write_file(filename,lines):
 	with open(filename, 'w') as f:
