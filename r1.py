@@ -10,6 +10,7 @@ def read_file(filename):
 #轉換格式
 def convert(lines):
 	new = []
+	person = None# 事先宣告 person的值為None
 	for line in lines:
 		if line == 'Allen':
 			person = 'Allen'
@@ -17,8 +18,8 @@ def convert(lines):
 		elif line == 'Tom':
 			person = 'Tom'
 			continue
-
-		new.append(person + ':' + line)
+		if person: #有值才執行 避免 person 當掉
+			new.append(person + ':' + line)
 	print(new)
 
 
@@ -26,6 +27,6 @@ def convert(lines):
 def main():
 	lines = read_file('input.txt')
 	#print(lines)
-	convert(lines)
+	lines = convert(lines) #複寫回 lines清單
 
 main()
