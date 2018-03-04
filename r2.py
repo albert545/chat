@@ -11,8 +11,17 @@ def read_file(filename):
 def convert(lines):
 	new = []
 	person = None # 事先宣告 person的值為None
+	allen_word_count = 0
+	viki_word_xount = 0
 	for line in lines:
-		print(line)
+		s = line.split(' ')  #分割清單
+		time = s[0]          #取出0 欄
+		name = s[1]
+		if name == 'Allen':
+			print(s[2:])
+		if name == 'Viki':
+			print(s[2:])
+		#print(line)
 	return new
 #寫入檔案
 def write_file(filename,lines):
